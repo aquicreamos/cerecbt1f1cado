@@ -1,0 +1,35 @@
+SELECT
+principal.idcedula,
+principal.pnombre,
+principal.papellido,
+principal.papellido2,
+principal.pcorreo,
+principal.ptel,
+principal.centro_ubica_idcentro_ubica,
+principal.unidad_estado_idunidad_estado,
+principal.tipo_idtipo,
+cantidad_anio.idcantidad_anio,
+cantidad_anio.principal_idprincipal,
+cantidad_anio.codigo,
+cantidad_anio.imgreg_idimgreg,
+imgreg.idimgreg,
+imgreg.imganio,
+imgreg.localimagen,
+centro_ubica.idcentro_ubica,
+centro_ubica.nubicacion,
+centro_ubica.tipo_centro,
+unidad_estado.idunidad_estado,
+unidad_estado.nunidad_es,
+unidad_estado.unidad_tipo
+FROM
+principal ,
+cantidad_anio ,
+imgreg ,
+centro_ubica ,
+unidad_estado
+WHERE
+principal.idcedula =  '14297510' AND
+cantidad_anio.principal_idprincipal =  principal.idcedula AND
+unidad_estado.idunidad_estado =  principal.unidad_estado_idunidad_estado AND
+centro_ubica.idcentro_ubica =  principal.centro_ubica_idcentro_ubica AND
+imgreg.idimgreg =  cantidad_anio.imgreg_idimgreg
